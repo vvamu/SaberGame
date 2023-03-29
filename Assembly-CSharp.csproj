@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F307F476-1F0C-6E1F-1F02-59FBCD3503EC}</ProjectGuid>
+    <ProjectGuid>{A1AE936B-EC54-940D-F060-1BF69E687163}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -104,6 +104,7 @@
     <Compile Include="Assets\Easy Character Movement\Scripts\@Obsolete\SphereGroundDetection.cs" />
     <Compile Include="Assets\Easy Character Movement\Walkthrough\3 - Movement Relative To Camera\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\Easy Character Movement\Walkthrough\4 - Custom Rotation (tank like rotation)\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Ammo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Easy Character Movement\README.txt" />
