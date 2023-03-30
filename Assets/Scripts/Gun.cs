@@ -1,19 +1,22 @@
 using Assets.Scripts;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
     [SerializeField] private Transform _hole;
     [SerializeField] private GameObject _bullet;
+
     [SerializeField] private float _spread;
     [SerializeField] private float _bulletForce;
     [SerializeField] private float _delayBeforeNextShot;
+    [SerializeField] private float _bulletLifeTime;
 
     private float _currentTimeToShot;
 
     [SerializeField] private Ammo _ammo;
+
+    [SerializeField] private Animator _animator;
 
     private void Start()
     {
@@ -22,10 +25,23 @@ public class Gun : MonoBehaviour
     }
     private void Update()
     {
+        Aiming();
         Shoot();
+    }
+    private void Aiming()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            _animator.SetBool("Aiming", true);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            _animator.SetBool("Aiming", false);
+        }
     }
     private void Shoot()
     {
+        if (!Input.GetMouseButtonDown(0)) return;
         if (!CanShoot()) return;
 
         var ray = new Ray(_hole.position, _hole.forward);
@@ -46,6 +62,7 @@ public class Gun : MonoBehaviour
         var direction = targetPoint - _hole.position + new Vector3(spreadX, spreadY, 0);
 
         var bullet = Instantiate(_bullet, _hole.position, Quaternion.AngleAxis(90, Vector3.right));
+        Destroy(bullet, _bulletLifeTime);
 
         bullet.GetComponent<Rigidbody>().AddForce(direction.normalized * _bulletForce, ForceMode.Impulse);
 
@@ -76,8 +93,7 @@ public class Gun : MonoBehaviour
     }
     private bool CanShoot()
     {
-       return Input.GetMouseButtonDown(0)
-            && _currentTimeToShot >= _delayBeforeNextShot
+       return _currentTimeToShot >= _delayBeforeNextShot
             && _ammo._currentInClipCount > 0;
     }
 }
