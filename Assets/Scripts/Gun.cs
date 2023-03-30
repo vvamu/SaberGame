@@ -10,6 +10,9 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _spread;
     [SerializeField] private float _bulletForce;
     [SerializeField] private float _delayBeforeNextShot;
+    [SerializeField] private float _damage;
+    [SerializeField] private ParticleSystem _muzzleFlash;
+    [SerializeField] private GameObject _hitEffect;
 
     private float _currentTimeToShot;
 
@@ -32,9 +35,19 @@ public class Gun : MonoBehaviour
         Vector3 targetPoint;
         RaycastHit hit;
 
+        _muzzleFlash.Play();
+
         if (Physics.Raycast(ray, out hit))
         {
             targetPoint = hit.point;
+            GameObject hitEffectClone = Instantiate(_hitEffect, hit.point, Quaternion.LookRotation(hit.normal)); 
+            Destroy(hitEffectClone, 1);
+
+            Target target = hit.transform.GetComponent<Target>();
+            if(target != null)
+            {
+                target.TakeDamage(_damage);
+            }
         }
         else
         {
