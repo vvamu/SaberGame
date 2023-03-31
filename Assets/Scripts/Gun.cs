@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -18,8 +19,12 @@ public class Gun : MonoBehaviour
     private float _currentTimeToShot;
 
     [SerializeField] private Ammo _ammo;
-
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioClip _shot;
+    [SerializeField] private AudioClip _reload;
+    [SerializeField] private AudioSource _audioSource;
+
+    public float Damage => _damage;
 
     private void Start()
     {
@@ -47,6 +52,9 @@ public class Gun : MonoBehaviour
         if (!Input.GetMouseButtonDown(0)) return;
         if (!CanShoot()) return;
 
+        _audioSource.clip = _shot;
+        _audioSource.Play();
+
         var ray = new Ray(_hole.position, _hole.forward);
         Vector3 targetPoint;
         RaycastHit hit;
@@ -59,18 +67,18 @@ public class Gun : MonoBehaviour
             GameObject hitEffectClone = Instantiate(_hitEffect, hit.point, Quaternion.LookRotation(hit.normal)); 
             Destroy(hitEffectClone, 1);
 
-            Target target = hit.transform.GetComponent<Target>();
+            Enemy target = hit.transform.GetComponent<Enemy>();
             if(target != null)
             {
-                target.TakeDamage(_damage);
+                target.TakeDamage(Convert.ToInt32(_damage));
             }
         }
         else
         {
             targetPoint = ray.GetPoint(100);
         }
-        var spreadX = Random.Range(-_spread, _spread);
-        var spreadY = Random.Range(-_spread, _spread);
+        var spreadX = UnityEngine.Random.Range(-_spread, _spread);
+        var spreadY = UnityEngine.Random.Range(-_spread, _spread);
 
         var direction = targetPoint - _hole.position + new Vector3(spreadX, spreadY, 0);
 
@@ -92,6 +100,9 @@ public class Gun : MonoBehaviour
     }
     private void Reload()
     {
+        _audioSource.clip = _reload;
+        _audioSource.Play();
+
         var lessAmmo = _ammo._clipCapacity >= _ammo._currentCount ? _ammo._currentCount : _ammo._clipCapacity;
         _ammo._currentInClipCount = lessAmmo;
         _ammo._currentCount -= lessAmmo;
