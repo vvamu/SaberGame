@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6856868510953690379}
   - component: {fileID: -1066404092498598762}
   - component: {fileID: 1154226595614002807}
+  - component: {fileID: 5106939537833711306}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -154,7 +155,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb309ceeca9ca634fa5fc0a59fdb0437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: []
+  Path: []
+  enemyVision: {fileID: 5106939537833711306}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1796979417919904136}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Health: 100
+--- !u!114 &5106939537833711306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796979417919904136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bdd7ad950407441b6cf8e7d006ccb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Angle: 60
+  Range: 10
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2034568056169724077
 GameObject:
   m_ObjectHideFlags: 0
