@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302606646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.047, y: 0, z: 0.691}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.047, y: 0, z: 0.886}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8060289952427822227}
   m_RootOrder: 36
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &7516893143344687992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,6 +38,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8700617353114198275, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
         type: 3}
       propertyPath: m_RootOrder
@@ -123,6 +128,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 6bcc7a57b88ddba48bd12a6344fb6c37, type: 2}
+    - target: {fileID: 65702495048144492, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 122608338434328296, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -199,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReadyToShoot: 1
-  _delayBeforeNextShot: 0.1
+  _delayBeforeNextShot: 1
 --- !u!114 &1115255123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,9 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClipCapacity: 30
-  CurrentCount: 100
+  CurrentCount: 1000
   CurrentInClipCount: 0
-  MaxCapacity: 100
+  MaxCapacity: 1000
 --- !u!114 &1115255124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,10 +240,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hole: {fileID: 1302606647}
   _ammo: {fileID: 1115255123}
+  _bullet: {fileID: 5722418493641417343, guid: 117a2e8e9d2679c4cb039bdeedb37cf0, type: 3}
   _delayTimer: {fileID: 1115255122}
   _animator: {fileID: 1115255125}
-  _spread: 10
-  _damage: 15
+  _camera: {fileID: 0}
+  _spread: 0.01
+  _damage: 20
 --- !u!4 &8060289952427822227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33655a7d0933d5c408b82c8f6ec52d0a,

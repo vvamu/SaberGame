@@ -10,8 +10,7 @@ public class Enemy : MonoBehaviour
     
     [SerializeField] private UnityEvent OnDeath;
 
-    [Min(0)]
-    [SerializeField] private int Health;
+    [SerializeField] private int Health = 100;
 
 
     public int TakeDamage(int damage)
