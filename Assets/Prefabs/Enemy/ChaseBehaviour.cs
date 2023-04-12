@@ -20,7 +20,7 @@ public class ChaseBehaviour : StateMachineBehaviour
 
         if (target == null)
         {
-            animator.SetBool("IsChasing", false);
+            animator.SetTrigger("OnPlayerFound");
         }
         else
         {

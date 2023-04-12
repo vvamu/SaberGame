@@ -6,18 +6,27 @@ using UnityEngine;
 public class BaseStateMachine : MonoBehaviour
 {
     [SerializeField] private BaseState _initialState;
+    [NonSerialized] public Dictionary<string, object> Variables;
+
     private Dictionary<Type, Component> _cachedComponents;
+    private BaseState _currentState;
     private void Awake()
     {
-        CurrentState = _initialState;
+        _currentState = _initialState;
         _cachedComponents = new Dictionary<Type, Component>();
+        Variables = new Dictionary<string, object>();
     }
-
-    public BaseState CurrentState { get; set; }
 
     private void Update()
     {
-        CurrentState.Execute(this);
+        _currentState.Execute(this);
+    }
+
+    public void ChangeState(BaseState newState)
+    {
+        _currentState.OnStateExit(this);
+        newState.OnStateEnter(this);
+        _currentState = newState;
     }
 
     public new T GetComponent<T>() where T : Component
@@ -25,11 +34,8 @@ public class BaseStateMachine : MonoBehaviour
         if (_cachedComponents.ContainsKey(typeof(T)))
             return _cachedComponents[typeof(T)] as T;
 
-        var component = base.GetComponent<T>();
-        if (component != null)
-        {
+        if (TryGetComponent<T>(out var component))
             _cachedComponents.Add(typeof(T), component);
-        }
         return component;
     }
 

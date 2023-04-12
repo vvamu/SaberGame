@@ -29,7 +29,7 @@ public class PatrolBehaviour : StateMachineBehaviour
 
         if (_enemy.enemyVision.SearchForTarget())
         {
-            animator.SetBool("IsChasing", true);
+            animator.SetTrigger("OnPlayerFound");
         }
     }
 }
