@@ -6,13 +6,16 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     public List<Transform> Path;
-    public EnemyVision enemyVision;
+    public EnemyVision EnemyVision;
     
     [SerializeField] private UnityEvent OnDeath;
 
     [Min(0)]
     [SerializeField] private int Health;
 
+    [Header("Movement")]
+    public float WalkSpeed;
+    public float SprintSpeed;
 
     public int TakeDamage(int damage)
     {
