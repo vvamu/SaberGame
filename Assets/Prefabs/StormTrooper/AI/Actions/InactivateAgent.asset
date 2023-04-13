@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b6a2ca357d4d74d90c656110fdddd9, type: 3}
   m_Name: InactivateAgent
   m_EditorClassIdentifier: 
-  Active: 1
+  Active: 0

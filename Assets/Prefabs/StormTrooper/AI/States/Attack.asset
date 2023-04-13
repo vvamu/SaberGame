@@ -17,5 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28549e06551addf41843f3e6bc7c6b15, type: 2}
   Transitions:
   - {fileID: 11400000, guid: 1133ba2cd9cf4d9409b32f943fdfeb67, type: 2}
-  OnEnter: []
-  OnExit: []
+  - {fileID: 11400000, guid: c0df425aea64a184e9062238f4e53d48, type: 2}
+  OnEnter:
+  - {fileID: 11400000, guid: 9ffbdafa1a95c4e4f8766253fa575a48, type: 2}
+  - {fileID: 11400000, guid: d40f35618c2e4ac44907c5d1c7f3f26d, type: 2}
+  OnExit:
+  - {fileID: 11400000, guid: db1e1e61995bee842b1fb18e5050eb87, type: 2}
