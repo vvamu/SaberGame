@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AfterAtackCooldown
   m_EditorClassIdentifier: 
   Decision: {fileID: 11400000, guid: 93f5ce257a6559d4e84a783d83c81915, type: 2}
-  TrueState: {fileID: 11400000, guid: 08c7d7604461ff34b9f1ffafaa9997a6, type: 2}
+  TrueState: {fileID: 11400000, guid: 7fb420c8dbf44034a88c35decfa69553, type: 2}
   FalseState: {fileID: 11400000, guid: 9fa12ed83376ded4e871c1202b07fe86, type: 2}

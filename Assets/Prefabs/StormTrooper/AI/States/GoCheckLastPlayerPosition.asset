@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: GoCheckLastPlayerPosition
   m_EditorClassIdentifier: 
   Action: []
-  Transitions: []
+  Transitions:
+  - {fileID: 11400000, guid: 57f26a719e150b44fb96b9b6c168575e, type: 2}
+  - {fileID: 11400000, guid: 89f456d4edb9cdb4bbda64b93bf515a0, type: 2}

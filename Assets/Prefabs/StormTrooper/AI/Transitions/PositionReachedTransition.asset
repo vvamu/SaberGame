@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ee161a29330bf4ea0d68b926d1bd6e, type: 3}
   m_Name: PositionReachedTransition
   m_EditorClassIdentifier: 
-  Decision: {fileID: 11400000, guid: 70084148bfd927c4296d5e70519e389b, type: 2}
-  TrueState: {fileID: 11400000, guid: e5771ad04bf856147b947dd61e795076, type: 2}
+  Decision: {fileID: 11400000, guid: 9d3ce3429c725e4439fa8f2d090a1350, type: 2}
+  TrueState: {fileID: 11400000, guid: 836edaa74dab688458590e5cb2be93b9, type: 2}
   FalseState: {fileID: 11400000, guid: 9fa12ed83376ded4e871c1202b07fe86, type: 2}

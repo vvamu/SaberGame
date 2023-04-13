@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ee161a29330bf4ea0d68b926d1bd6e, type: 3}
   m_Name: LostPlayerTransition
   m_EditorClassIdentifier: 
-  Decision: {fileID: 11400000, guid: bfb07d4ceb30fcd4ea8d93da029c4c69, type: 2}
+  Decision: {fileID: 11400000, guid: fafea831557ec9d40a1c44b2681c3fff, type: 2}
   TrueState: {fileID: 11400000, guid: 9fa12ed83376ded4e871c1202b07fe86, type: 2}
-  FalseState: {fileID: 11400000, guid: 703a3b99f625f654a97edaf42ee78946, type: 2}
+  FalseState: {fileID: 11400000, guid: 2829692dfd9c99947a4756e067d3ec58, type: 2}
