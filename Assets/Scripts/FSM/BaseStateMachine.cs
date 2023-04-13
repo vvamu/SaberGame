@@ -24,6 +24,7 @@ public class BaseStateMachine : MonoBehaviour
 
     public void ChangeState(BaseState newState)
     {
+        Debug.Log($"{_currentState}->{newState}");
         _currentState.OnStateExit(this);
         newState.OnStateEnter(this);
         _currentState = newState;

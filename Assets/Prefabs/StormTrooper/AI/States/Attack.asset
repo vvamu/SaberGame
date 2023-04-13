@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45364774fbcf13f45be20d4684eba612, type: 3}
-  m_Name: Chase
+  m_Script: {fileID: 11500000, guid: 2e632750ca9806d428892dc55acdfe22, type: 3}
+  m_Name: Attack
   m_EditorClassIdentifier: 
   Action:
   - {fileID: 11400000, guid: c89aae9eabadb9949a9c177cbdb3df7f, type: 2}
+  - {fileID: 11400000, guid: 28549e06551addf41843f3e6bc7c6b15, type: 2}
   Transitions:
-  - {fileID: 11400000, guid: 233cd11aa9640c04d926a008fe919b1a, type: 2}
-  - {fileID: 11400000, guid: 2fb5f328482fc0b4eab9204b3b74f4c5, type: 2}
+  - {fileID: 11400000, guid: 1133ba2cd9cf4d9409b32f943fdfeb67, type: 2}
+  OnEnter: []
+  OnExit: []

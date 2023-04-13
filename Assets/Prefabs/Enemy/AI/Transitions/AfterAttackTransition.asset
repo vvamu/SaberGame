@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ee161a29330bf4ea0d68b926d1bd6e, type: 3}
   m_Name: AfterAttackTransition
   m_EditorClassIdentifier: 
-  Decision: {fileID: 11400000, guid: 613225e2e88b0924f89a4e610415022d, type: 2}
-  TrueState: {fileID: 11400000, guid: 52c34ee3726474246a73c0bc184ac99f, type: 2}
+  Decision: {fileID: 11400000, guid: dbbc2b32c8e1b314b9cb4b87ade7e724, type: 2}
+  TrueState: {fileID: 11400000, guid: 4e569f4ad87a9a945bbc296d0dc92833, type: 2}
   FalseState: {fileID: 11400000, guid: 9fa12ed83376ded4e871c1202b07fe86, type: 2}

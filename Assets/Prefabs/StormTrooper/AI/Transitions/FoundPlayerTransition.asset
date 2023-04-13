@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0ee161a29330bf4ea0d68b926d1bd6e, type: 3}
-  m_Name: LookAroundTransition
+  m_Name: FoundPlayerTransition
   m_EditorClassIdentifier: 
-  Decision: {fileID: 11400000, guid: 613225e2e88b0924f89a4e610415022d, type: 2}
-  TrueState: {fileID: 11400000, guid: f0a114edb02c24441a9b87d2282449c1, type: 2}
+  Decision: {fileID: 11400000, guid: bfb07d4ceb30fcd4ea8d93da029c4c69, type: 2}
+  TrueState: {fileID: 11400000, guid: 08c7d7604461ff34b9f1ffafaa9997a6, type: 2}
   FalseState: {fileID: 11400000, guid: 9fa12ed83376ded4e871c1202b07fe86, type: 2}

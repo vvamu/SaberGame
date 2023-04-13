@@ -8,7 +8,7 @@ public class IsNearWithPlayer : Decision
     public override bool Decide(BaseStateMachine state)
     {
         var enemyInLineOfSight = state.GetComponent<Enemy>();
-        var player = enemyInLineOfSight.enemyVision.SearchForTarget();
+        var player = enemyInLineOfSight.EnemyVision.SearchForTarget();
         if (player)
         {
             float distance = (player.transform.position - state.transform.position).magnitude;
