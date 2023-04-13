@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LookAroundTransition
   m_EditorClassIdentifier: 
   Decision: {fileID: 11400000, guid: bebfec57e8f03a246be77bd1d2fc4109, type: 2}
-  TrueState: {fileID: 11400000, guid: 5a8de7747bd3d174cb1282a8c9b09fa3, type: 2}
+  TrueState: {fileID: 11400000, guid: e8a0fa7a739712c45935040fc0b87eb7, type: 2}
   FalseState: {fileID: 11400000, guid: 9fa12ed83376ded4e871c1202b07fe86, type: 2}
