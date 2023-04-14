@@ -143,6 +143,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3280927520727180574, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -196,37 +201,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1115255122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246353017474913833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c813339e71004343a7797d4d9cc9b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsReadyToShoot: 1
-  _delayBeforeNextShot: 1
---- !u!114 &1115255123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246353017474913833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: addb5ec60e433f944b64c7a6176a9392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClipCapacity: 30
-  CurrentCount: 1000
-  CurrentInClipCount: 0
-  MaxCapacity: 1000
---- !u!114 &1115255124
+--- !u!114 &-2863487851521704581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,6 +221,36 @@ MonoBehaviour:
   _camera: {fileID: 0}
   _spread: 0.01
   _damage: 20
+--- !u!114 &1115255122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7246353017474913833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c813339e71004343a7797d4d9cc9b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsReadyToShoot: 1
+  _delayBeforeNextShot: 2
+--- !u!114 &1115255123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7246353017474913833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addb5ec60e433f944b64c7a6176a9392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClipCapacity: 30
+  CurrentCount: 400
+  CurrentInClipCount: 5
+  MaxCapacity: 1000
 --- !u!4 &8060289952427822227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33655a7d0933d5c408b82c8f6ec52d0a,

@@ -36,7 +36,7 @@ public abstract class Weapon : MonoBehaviour
         var bullet = Instantiate(_bullet, _camera.transform.position, _camera.transform.rotation);
 
         bullet.transform.Translate(0, 0, 2);
-        Destroy(bullet, 3);
+        Destroy(bullet, 1);
 
         if (hit.transform != null && hit.transform.CompareTag("Enemy"))
         {
