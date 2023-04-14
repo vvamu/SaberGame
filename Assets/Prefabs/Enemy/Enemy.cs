@@ -1,4 +1,3 @@
-using Assets.Scripts.Weapon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
     public List<Transform> Path;
     public EnemyVision EnemyVision;
-    public EnemyWeapon Weapon;
     
     [SerializeField] private UnityEvent OnDeath;
 

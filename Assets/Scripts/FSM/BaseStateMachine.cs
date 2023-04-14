@@ -12,11 +12,9 @@ public class BaseStateMachine : MonoBehaviour
     private BaseState _currentState;
     private void Awake()
     {
-        Variables = new Dictionary<string, object>();
-        _cachedComponents = new Dictionary<Type, Component>();
-
-        _initialState.OnStateEnter(this);
         _currentState = _initialState;
+        _cachedComponents = new Dictionary<Type, Component>();
+        Variables = new Dictionary<string, object>();
     }
 
     private void Update()
