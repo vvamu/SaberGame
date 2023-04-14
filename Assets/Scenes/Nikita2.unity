@@ -130,6 +130,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1817963502}
     m_Modifications:
+    - target: {fileID: -6059080476918289982, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
+        type: 3}
+      propertyPath: _delayBeforeNextShot
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 229601651879118287, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ec79bc3520ea1d6478b9783cd5ace15e, type: 2}
     - target: {fileID: 2692360670426028184, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
         type: 3}
       propertyPath: m_Name
@@ -199,7 +209,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _ammo
       value: 
-      objectReference: {fileID: 500437764}
+      objectReference: {fileID: 500437766}
     - target: {fileID: 4178434108987331301, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
         type: 3}
       propertyPath: _camera
@@ -215,7 +225,13 @@ PrefabInstance:
       propertyPath: _delayTimer
       value: 
       objectReference: {fileID: 500437763}
-    m_RemovedComponents: []
+    - target: {fileID: 4178434108987331301, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
+        type: 3}
+      propertyPath: inventoryWeapon
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 229601651879118287, guid: 501d72ac85d77cb4d97a736ab78e2ab6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 501d72ac85d77cb4d97a736ab78e2ab6, type: 3}
 --- !u!1 &45499598
 GameObject:
@@ -1017,30 +1033,40 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4146931179504492528, guid: a3132e6da9f6ddb43b18cf3c6e63a703, type: 3}
+--- !u!1 &500437761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2692360670426028184, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 40173811}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &500437763 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -6059080476918289982, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
     type: 3}
   m_PrefabInstance: {fileID: 40173811}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 500437761}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c813339e71004343a7797d4d9cc9b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &500437764 stripped
+--- !u!114 &500437766
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7984824695964349545, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
-    type: 3}
-  m_PrefabInstance: {fileID: 40173811}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 500437761}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: addb5ec60e433f944b64c7a6176a9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClipCapacity: 8
+  CurrentCount: 90
+  CurrentInClipCount: 8
+  MaxCapacity: 90
 --- !u!1 &583238374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,6 +2119,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108239196}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1238666452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7246353017474913833, guid: f86ed6a17303f4740a27746c45e015a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2143773322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1441481130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4983556764258191882, guid: 56bfc17f11370304bbfaca35bed805cc,
@@ -2323,7 +2355,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6909c8654ede6b74d88b6af9597c2aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 30
+  dashSpeed: 150
+--- !u!114 &1700817253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700817244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9138b156a95ab5a409dd679acae19531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapons:
+  - {fileID: 500437761}
+  - {fileID: 1238666452}
+  switchSpeed: 5
 --- !u!1 &1808853436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,7 +3285,7 @@ PrefabInstance:
     - target: {fileID: 8060289952427822227, guid: f86ed6a17303f4740a27746c45e015a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8060289952427822227, guid: f86ed6a17303f4740a27746c45e015a6,
         type: 3}
@@ -3357,7 +3405,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _ammo
       value: 
-      objectReference: {fileID: 4306082418800809355}
+      objectReference: {fileID: 0}
     - target: {fileID: 4178434108987331301, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
         type: 3}
       propertyPath: _camera
@@ -3385,18 +3433,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c813339e71004343a7797d4d9cc9b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4306082418800809355 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7984824695964349545, guid: 501d72ac85d77cb4d97a736ab78e2ab6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1573084799963551659}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: addb5ec60e433f944b64c7a6176a9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8608825290703894179
