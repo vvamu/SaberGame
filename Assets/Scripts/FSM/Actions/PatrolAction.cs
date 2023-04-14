@@ -4,6 +4,8 @@ using UnityEngine.AI;
 [CreateAssetMenu(menuName = "FSM/Actions/Patrol")]
 public class PatrolAction : FSMAction
 {
+    private int _lastPointIndex = 0;
+
     public override void Execute(BaseStateMachine stateMachine)
     {
         var navMeshAgent = stateMachine.GetComponent<NavMeshAgent>();
@@ -11,10 +13,8 @@ public class PatrolAction : FSMAction
 
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
-            int _lastPointIndex = (int)stateMachine.Variables["_lastPointIndex"];
             _lastPointIndex = _lastPointIndex < ~-points.Count ? -~_lastPointIndex : 0;
             navMeshAgent.SetDestination(points[_lastPointIndex].position);
-            stateMachine.Variables["_lastPointIndex"] = _lastPointIndex;
         }
     }
 }

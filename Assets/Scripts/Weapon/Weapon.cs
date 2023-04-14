@@ -24,6 +24,7 @@ public abstract class Weapon : MonoBehaviour
         //var ray = new Ray(_hole.position, direction);
         var center = _camera.ScreenToWorldPoint(new Vector3(_camera.scaledPixelWidth/2, _camera.scaledPixelHeight/2,0),Camera.MonoOrStereoscopicEye.Mono);
         var ray = new Ray(center, _camera.transform.forward + new Vector3(spreadX, spreadY, 0));
+
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out var hit))
         {
@@ -36,10 +37,10 @@ public abstract class Weapon : MonoBehaviour
         var direction = targetPoint - center + new Vector3(spreadX, spreadY, 0);
         Debug.DrawRay(center, direction, Color.red);
 
-        //if (hit.transform.CompareTag("Enemy"))
-        //{
-        //    hit.transform.GetComponent<Enemy>().TakeDamage(Convert.ToInt32(_damage));
-        //}
+        if (hit.transform.CompareTag("Enemy"))
+        {
+            hit.transform.GetComponent<Enemy>().TakeDamage(Convert.ToInt32(_damage));
+        }
 
 
 
