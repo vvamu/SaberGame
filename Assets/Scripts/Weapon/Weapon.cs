@@ -5,6 +5,8 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField] public InventoryWeapon inventoryWeapon;
+
     [SerializeField] protected Transform _hole;
     [SerializeField] protected Ammo _ammo;
     [SerializeField] protected GameObject _bullet;
@@ -22,6 +24,7 @@ public abstract class Weapon : MonoBehaviour
 
         var center = _camera.ScreenToWorldPoint(new Vector3(_camera.scaledPixelWidth/2, _camera.scaledPixelHeight/2,0),Camera.MonoOrStereoscopicEye.Mono);
         var ray = new Ray(center, _camera.transform.forward + new Vector3(spreadX, spreadY, 0));
+
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out var hit))
         {
