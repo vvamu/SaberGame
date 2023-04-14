@@ -5,6 +5,8 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField] public InventoryWeapon inventoryWeapon;
+
     [SerializeField] protected Transform _hole;
     [SerializeField] protected Ammo _ammo;
     [SerializeField] protected ShotDelayTimer _delayTimer;

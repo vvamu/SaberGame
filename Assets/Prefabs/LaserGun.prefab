@@ -36,6 +36,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
@@ -133,6 +134,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3280927520727180574, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -159,6 +165,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 6bcc7a57b88ddba48bd12a6344fb6c37, type: 2}
     m_RemovedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33655a7d0933d5c408b82c8f6ec52d0a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1302606647}
   m_SourcePrefab: {fileID: 100100000, guid: 33655a7d0933d5c408b82c8f6ec52d0a, type: 3}
 --- !u!1 &7246353017474913833 stripped
 GameObject:
@@ -228,10 +239,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab2cfb9a4dcb1f4394ca0d2e2cd1dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryWeapon: {fileID: 0}
   _hole: {fileID: 1302606647}
   _ammo: {fileID: 1115255123}
   _delayTimer: {fileID: 1115255122}
   _animator: {fileID: 1115255125}
+  _camera: {fileID: 0}
   _spread: 10
   _damage: 15
 --- !u!4 &8060289952427822227 stripped

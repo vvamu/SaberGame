@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4080255127495085844}
-  - component: {fileID: 4080255127495085845}
-  - component: {fileID: 4080255127495085850}
   - component: {fileID: 2037060835}
+  - component: {fileID: 1871459728042125009}
+  - component: {fileID: 7566599728039538654}
+  - component: {fileID: 2644455369162673001}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -37,46 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4080255127495085845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4080255127495085851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e15b965ac24b79488a1e008ac622f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hole: {fileID: 4080255127980180351}
-  _bullet: {fileID: 2211188904563107284, guid: 6996d1bdc295fa84c9511cd05064288d, type: 3}
-  _spread: 10
-  _bulletForce: 100
-  _delayBeforeNextShot: 0.5
-  _damage: 20
-  _muzzleFlash: {fileID: 1904557572861930473, guid: 78ed490b17b6fa54a93160e557f8746d,
-    type: 3}
-  _hitEffect: {fileID: 2243223733089056500, guid: 5c808def44d6ac34493a4548cdcecee0,
-    type: 3}
-  _bulletLifeTime: 3
-  _ammo: {fileID: 4080255127495085850}
-  _animator: {fileID: 2037060835}
---- !u!114 &4080255127495085850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4080255127495085851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: addb5ec60e433f944b64c7a6176a9392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clipCapacity: 7
-  _currentCount: 21
-  _currentInClipCount: 0
 --- !u!95 &2037060835
 Animator:
   serializedVersion: 4
@@ -97,6 +58,56 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1871459728042125009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080255127495085851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab2cfb9a4dcb1f4394ca0d2e2cd1dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryWeapon: {fileID: 0}
+  _hole: {fileID: 1302606647, guid: f86ed6a17303f4740a27746c45e015a6, type: 3}
+  _ammo: {fileID: 1115255123, guid: f86ed6a17303f4740a27746c45e015a6, type: 3}
+  _delayTimer: {fileID: 1115255122, guid: f86ed6a17303f4740a27746c45e015a6, type: 3}
+  _animator: {fileID: 1115255125, guid: f86ed6a17303f4740a27746c45e015a6, type: 3}
+  _camera: {fileID: 0}
+  _spread: 10
+  _damage: 15
+--- !u!114 &7566599728039538654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080255127495085851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c813339e71004343a7797d4d9cc9b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsReadyToShoot: 1
+  _delayBeforeNextShot: 0.1
+--- !u!114 &2644455369162673001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080255127495085851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addb5ec60e433f944b64c7a6176a9392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClipCapacity: 30
+  CurrentCount: 100
+  CurrentInClipCount: 0
+  MaxCapacity: 100
 --- !u!1 &4080255127585350090
 GameObject:
   m_ObjectHideFlags: 0
