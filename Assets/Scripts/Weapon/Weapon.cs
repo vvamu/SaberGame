@@ -9,6 +9,7 @@ public abstract class Weapon : MonoBehaviour
 
     [SerializeField] protected Transform _hole;
     [SerializeField] protected Ammo _ammo;
+    [SerializeField] protected GameObject _bullet;
     [SerializeField] protected ShotDelayTimer _delayTimer;
     [SerializeField] protected Animator _animator;
     [SerializeField] protected Camera _camera;
@@ -21,9 +22,6 @@ public abstract class Weapon : MonoBehaviour
         var spreadX = UnityEngine.Random.Range(-_spread, _spread);
         var spreadY = UnityEngine.Random.Range(-_spread, _spread);
 
-        //var direction =  + new Vector3(spreadX, spreadY, 0);
-
-        //var ray = new Ray(_hole.position, direction);
         var center = _camera.ScreenToWorldPoint(new Vector3(_camera.scaledPixelWidth/2, _camera.scaledPixelHeight/2,0),Camera.MonoOrStereoscopicEye.Mono);
         var ray = new Ray(center, _camera.transform.forward + new Vector3(spreadX, spreadY, 0));
 
@@ -37,14 +35,16 @@ public abstract class Weapon : MonoBehaviour
             targetPoint = ray.GetPoint(100);
         }
         var direction = targetPoint - center + new Vector3(spreadX, spreadY, 0);
-        Debug.DrawRay(center, direction, Color.red);
 
-        if (hit.transform.CompareTag("Enemy"))
+        var bullet = Instantiate(_bullet, _camera.transform.position, _camera.transform.rotation);
+
+        bullet.transform.Translate(0, 0, 2);
+        Destroy(bullet, 1);
+
+        if (hit.transform != null && hit.transform.CompareTag("Enemy"))
         {
             hit.transform.GetComponent<Enemy>().TakeDamage(Convert.ToInt32(_damage));
         }
-
-
 
         _ammo.CurrentInClipCount--;
 
