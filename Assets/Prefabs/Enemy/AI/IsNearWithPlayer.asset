@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8738c01392813014ba7395449022d655, type: 3}
   m_Name: IsNearWithPlayer
   m_EditorClassIdentifier: 
-  delta: 1
+  delta: 2
