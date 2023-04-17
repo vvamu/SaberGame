@@ -5,27 +5,32 @@ using UnityEngine;
 public class EnemyVision : MonoBehaviour
 {
     [Range(0, 360)]
-    [SerializeField] 
-    private float Angle;
+    public float Angle;
 
-    [SerializeField] private float Range;
+    public float Range;
+    public float RangeApriori;
 
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstacleMask;
 
+    private Collider[] _collidersBuffer = new Collider[2];
+
     public GameObject? SearchForTarget()
     {
-        Collider[] colliderInRange = Physics.OverlapSphere(transform.position, Range, targetMask);
+        int count = Physics.OverlapSphereNonAlloc(transform.position, RangeApriori, _collidersBuffer, targetMask);
+        if(count > 0) return _collidersBuffer[0].gameObject;
 
-        if (colliderInRange.Length == 0) return null;
+        count = Physics.OverlapSphereNonAlloc(transform.position, Range, _collidersBuffer, targetMask);
 
-        Transform target = colliderInRange[0].transform;
+        if (count == 0) return null;
+
+        Transform target = _collidersBuffer[0].transform;
         Vector3 directionToTarget = (target.position - transform.position).normalized;
 
         if(Vector3.Angle(transform.forward, directionToTarget) >= Angle / 2) return null;
         
         if(Physics.Raycast(transform.position, directionToTarget, Range, obstacleMask)) return null;
 
-        return colliderInRange[0].gameObject;
+        return _collidersBuffer[0].gameObject;
     }
 }

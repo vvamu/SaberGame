@@ -10,8 +10,6 @@ namespace Assets.Scripts.Weapon
         [SerializeField] protected LineRenderer _lineRenderer;
         public void Shoot(Vector3 target)
         {
-            target.y += 0.5f;
-
             _lineRenderer.positionCount = 2;
             _lineRenderer.SetPositions(new Vector3[] { _hole.position, target });
             StartCoroutine(DispawnBullet());
