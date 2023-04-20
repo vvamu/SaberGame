@@ -1,5 +1,6 @@
 using Assets.Scripts;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -41,9 +42,9 @@ public abstract class Weapon : MonoBehaviour
         bullet.transform.Translate(0, 0, 2);
         Destroy(bullet, 1);
 
-        if (hit.transform != null && hit.transform.CompareTag("Enemy"))
+        if (hit.transform != null && hit.transform.GetComponent<Character>() == true)
         {
-            hit.transform.GetComponent<Enemy>().TakeDamage(Convert.ToInt32(_damage));
+            hit.transform.GetComponent<Character>().TakeDamage(_damage);
         }
 
         _ammo.CurrentInClipCount--;
