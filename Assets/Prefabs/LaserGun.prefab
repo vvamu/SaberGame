@@ -2518,7 +2518,7 @@ GameObject:
   - component: {fileID: 1115255125}
   - component: {fileID: -2863487851521704581}
   - component: {fileID: 1115255122}
-  - component: {fileID: 1115255123}
+  - component: {fileID: 5886974727383590174}
   m_Layer: 0
   m_Name: LaserGun
   m_TagString: Untagged
@@ -2634,7 +2634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsReadyToShoot: 1
   _delayBeforeNextShot: 0.1
---- !u!114 &1115255123
+--- !u!114 &5886974727383590174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2646,10 +2646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addb5ec60e433f944b64c7a6176a9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipCapacity: 30
-  CurrentCount: 400
-  CurrentInClipCount: 5
-  MaxCapacity: 1000
+  ClipCapacity: 0
+  CurrentCount: 0
+  CurrentInClipCount: 0
+  MaxCapacity: 0
 --- !u!1 &7545836627471547668
 GameObject:
   m_ObjectHideFlags: 0
