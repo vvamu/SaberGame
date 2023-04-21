@@ -15,4 +15,5 @@ public class Enemy : Character
     public float WalkSpeed;
     public float SprintSpeed;
 
+    
 }

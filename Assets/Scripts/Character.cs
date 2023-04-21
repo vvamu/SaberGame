@@ -9,18 +9,18 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
-    public abstract class Character : MonoBehaviour
+    public class Character : MonoBehaviour
     {
-        [SerializeField] protected UnityEvent OnDeath;
+        //[SerializeField] protected UnityEvent OnDeath;
 
         [Min(0)]
         [SerializeField] public float Health;
         public virtual float TakeDamage(float damage)
         {
             Health -= damage;
-            if (Health <= 0)
-                OnDeath.Invoke();
-            //UnityEngine.Debug.Log("Take damage " + Health.ToString());
+            if (Health < 0)
+                Destroy(gameObject);
+            //    OnDeath.Invoke();
             return Health;
         }
     }

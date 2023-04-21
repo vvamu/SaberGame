@@ -10,26 +10,22 @@ namespace Assets.Scripts.Weapon
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float _speed;
+        [SerializeField] private GameObject _hitParticle;
 
-        private Rigidbody _rb;
-        private Vector3 _targetPosition;
-        private void Start()
-        {
-            
-            transform.Rotate(90,0,0);
-            //_rb.AddForce(0, 0, _speed);
-        }
 
         private void FixedUpdate()
         {
-
-            transform.Translate(0, _speed, 0);
-            //_rb.MovePosition(transform.TransformDirection(transform.forward*2));//+ _speed * transform.forward));
-
+            transform.Translate(0, 0, _speed);
         }
-        //public void SetTarget()
-        //{
-
-        //}
+        private void OnCollisionEnter(Collision collision)
+        {
+            GameObject col = collision.gameObject;
+            if (col.CompareTag("Wall"))
+            {
+                GameObject particle = GameObject.Instantiate(_hitParticle, transform.position, Quaternion.identity, col.transform);
+                Destroy(gameObject);
+            }
+           
+        }
     }
 }

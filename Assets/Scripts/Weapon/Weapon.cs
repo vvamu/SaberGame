@@ -2,6 +2,7 @@ using Assets.Scripts;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public abstract class Weapon : MonoBehaviour
@@ -14,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected ShotDelayTimer _delayTimer;
     [SerializeField] protected Animator _animator;
     [SerializeField] protected Camera _camera;
+    [SerializeField] protected GameObject _aim;
 
     [SerializeField] protected float _spread;
     [SerializeField] protected float _damage;
@@ -23,9 +25,9 @@ public abstract class Weapon : MonoBehaviour
         var spreadX = UnityEngine.Random.Range(-_spread, _spread);
         var spreadY = UnityEngine.Random.Range(-_spread, _spread);
 
-        var center = _camera.ScreenToWorldPoint(new Vector3(_camera.scaledPixelWidth/2, _camera.scaledPixelHeight/2,0),Camera.MonoOrStereoscopicEye.Mono);
-        var ray = new Ray(center, _camera.transform.forward + new Vector3(spreadX, spreadY, 0));
-
+        var center = _camera.transform.position;
+        var ray = new Ray(center, transform.forward + new Vector3(spreadX, spreadY, 0));
+        
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out var hit))
         {
@@ -35,14 +37,15 @@ public abstract class Weapon : MonoBehaviour
         {
             targetPoint = ray.GetPoint(100);
         }
-        var direction = targetPoint - center + new Vector3(spreadX, spreadY, 0);
+        Debug.DrawRay(center, transform.forward + new Vector3(spreadX, spreadY, 0));
+        var direction = targetPoint - _hole.transform.position + new Vector3(spreadX, spreadY, 0);
 
-        var bullet = Instantiate(_bullet, _camera.transform.position, _camera.transform.rotation);
+        var bullet = Instantiate(_bullet, _hole.position, transform.rotation);
+        Debug.Log(_hole.transform.position);
 
-        bullet.transform.Translate(0, 0, 2);
         Destroy(bullet, 1);
 
-        if (hit.transform != null && hit.transform.GetComponent<Character>() == true)
+        if (hit.transform != null && hit.transform.CompareTag("Character"))
         {
             hit.transform.GetComponent<Character>().TakeDamage(_damage);
         }
