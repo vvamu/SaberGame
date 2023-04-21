@@ -10,9 +10,17 @@ namespace Assets.Scripts
 {
     public abstract class Character : MonoBehaviour
     {
-        [SerializeField] protected UnityEvent OnDeath;
+        //[SerializeField] protected UnityEvent OnDeath;
 
         [Min(0)]
         [SerializeField] protected float Health;
+        public float TakeDamage(float damage)
+        {
+            Health -= damage;
+            if (Health < 0)
+                Destroy(gameObject);
+            //    OnDeath.Invoke();
+            return Health;
+        }
     }
 }

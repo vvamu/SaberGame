@@ -16,14 +16,14 @@ namespace Assets.Scripts.Weapon
         private void Start()
         {
             
-            transform.Rotate(90,0,0);
+            //transform.Rotate(90,0,0);
             //_rb.AddForce(0, 0, _speed);
         }
 
         private void FixedUpdate()
         {
 
-            transform.Translate(0, _speed, 0);
+            transform.Translate(0, 0, _speed);
             //_rb.MovePosition(transform.TransformDirection(transform.forward*2));//+ _speed * transform.forward));
 
         }
