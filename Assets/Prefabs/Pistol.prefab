@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1711112477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1711112478}
+  m_Layer: 0
+  m_Name: SpawnHole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1711112478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711112477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.002, y: 0.109, z: 0.279}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3321122628735435298}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2454503158365738925
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,9 +140,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2692360670426028184}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: -0.63, z: 1.98}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: -2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5363526204761013632}
@@ -123,6 +154,7 @@ Transform:
   - {fileID: 7858785465068309710}
   - {fileID: 6927734542459533221}
   - {fileID: 2820263413121877986}
+  - {fileID: 1711112478}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,12 +171,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryWeapon: {fileID: 0}
-  _hole: {fileID: 1302606647, guid: f86ed6a17303f4740a27746c45e015a6, type: 3}
+  _hole: {fileID: 1711112478}
   _ammo: {fileID: 3528975410081427895}
   _bullet: {fileID: 1477127202020918, guid: 1ad41d6687fa8dd49986efaea7038266, type: 3}
   _delayTimer: {fileID: -6059080476918289982}
   _animator: {fileID: 0}
   _camera: {fileID: 0}
+  _aim: {fileID: 0}
   _spread: 0.01
   _damage: 35
 --- !u!114 &-6059080476918289982

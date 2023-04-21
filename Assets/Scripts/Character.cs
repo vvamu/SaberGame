@@ -9,13 +9,13 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
-    public abstract class Character : MonoBehaviour
+    public class Character : MonoBehaviour
     {
         //[SerializeField] protected UnityEvent OnDeath;
 
         [Min(0)]
-        [SerializeField] protected float Health;
-        public float TakeDamage(float damage)
+        [SerializeField] public float Health;
+        public virtual float TakeDamage(float damage)
         {
             Health -= damage;
             if (Health < 0)
