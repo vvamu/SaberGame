@@ -6,63 +6,38 @@ using UnityEngine;
 public class Dash : MonoBehaviour
 {
     public float dashSpeed;
+    public float cooldownTime;
+    float lastDashTime;
     Rigidbody rig;
     bool isDashing;
     Vector3 dashDirection;
 
-    public static Dictionary<KeyCode, Action> keyboard = new Dictionary<KeyCode, Action>();
-
     void Start()
     {
         rig = GetComponent<Rigidbody>();
-
-        keyboard.Add(KeyCode.A, DashLeft);
-        keyboard.Add(KeyCode.D, DashRight);
-        keyboard.Add(KeyCode.W, DashForward);
     }
+
     private void Dashing()
     {
         var directon = transform.rotation * dashDirection * dashSpeed;
         rig.AddForce(directon, ForceMode.Impulse);
         isDashing = false;
+        lastDashTime = Time.time;
     }
-
-    private float lastClickTime;
-    private const float DOUBLE_CLICK_TIME = .2f;
 
     void Update()
     {
-        foreach (var keyCode in keyboard)
+        if (Time.time > lastDashTime + cooldownTime)
         {
-
-            if (Input.GetKeyDown(keyCode.Key))
+            if (Input.GetKeyDown(KeyCode.LeftAlt))
             {
-                float timeSinceLastClick = Time.time - lastClickTime;
-
-                if (timeSinceLastClick <= DOUBLE_CLICK_TIME)
-                {
-                    isDashing = true;
-                    keyCode.Value();
-                }
-
-                lastClickTime = Time.time;
+                dashDirection = Vector3.forward;
+                isDashing = true;
             }
+           
         }
     }
-
-    private void DashLeft()
-    {
-        dashDirection = Vector3.left;
-    }
-    private void DashRight()
-    {
-        dashDirection = Vector3.right;
-    }
-    private void DashForward()
-    {
-        dashDirection = Vector3.forward;
-    }
-
+       
     private void FixedUpdate()
     {
         if (isDashing)
