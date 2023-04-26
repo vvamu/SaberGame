@@ -158,25 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb309ceeca9ca634fa5fc0a59fdb0437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 100
   Path: []
   EnemyVision: {fileID: 5106939537833711306}
   Weapon: {fileID: 0}
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1796979417919904136}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Health: 100
   WalkSpeed: 2
   SprintSpeed: 4
 --- !u!114 &5106939537833711306
@@ -790,7 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spread: 0
-  _hole: {fileID: 8242156948050279061}
+  _hole: {fileID: 8242156946856345976}
   _lineRenderer: {fileID: 9087722269896782874}
 --- !u!4 &2141990568089453873 stripped
 Transform:
@@ -798,9 +783,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8242156946751867298}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8242156948050279061 stripped
+--- !u!4 &8242156946856345976 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1302606647, guid: f86ed6a17303f4740a27746c45e015a6,
+  m_CorrespondingSourceObject: {fileID: 172869850, guid: f86ed6a17303f4740a27746c45e015a6,
     type: 3}
   m_PrefabInstance: {fileID: 8242156946751867298}
   m_PrefabAsset: {fileID: 0}
