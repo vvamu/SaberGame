@@ -45,7 +45,7 @@ public abstract class Weapon : MonoBehaviour
 
         Destroy(bullet, 1);
 
-        if (hit.transform != null && hit.transform.CompareTag("Character"))
+        if (hit.transform != null && hit.transform.GetComponent<Character>())
         {
             hit.transform.GetComponent<Character>().TakeDamage(_damage);
         }
