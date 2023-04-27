@@ -132,8 +132,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1262226973456409187, guid: 56bfc17f11370304bbfaca35bed805cc,
         type: 3}
+      propertyPath: dashSpeed
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262226973456409187, guid: 56bfc17f11370304bbfaca35bed805cc,
+        type: 3}
       propertyPath: cooldownTime
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262226973456409187, guid: 56bfc17f11370304bbfaca35bed805cc,
+        type: 3}
+      propertyPath: dashDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262226973456409187, guid: 56bfc17f11370304bbfaca35bed805cc,
+        type: 3}
+      propertyPath: dashDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6144156469601743275, guid: 56bfc17f11370304bbfaca35bed805cc,
         type: 3}
