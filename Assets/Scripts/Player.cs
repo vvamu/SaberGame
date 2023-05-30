@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
@@ -11,7 +7,6 @@ namespace Assets.Scripts
     {
         [SerializeField] public float RegenerationCount;
         [SerializeField] public float RegenerationDecay;
-        [SerializeField] public float MaxHealth;
 
         bool TimerOn = false;
         float Timer = 0;
@@ -44,6 +39,7 @@ namespace Assets.Scripts
                 if (Health<MaxHealth)
                 {
                     Health += RegenerationCount * Time.deltaTime;
+                    onHealthChange.Invoke(Health, MaxHealth);
                 }
             }
         }
