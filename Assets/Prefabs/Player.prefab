@@ -80,7 +80,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7472575250410967705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 1262226973456409187}
   - component: {fileID: 2640875057760273715}
   - component: {fileID: 6872031527559626090}
+  - component: {fileID: 7822282982410070773}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -824,6 +825,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 9200621035557189588}
+--- !u!114 &7822282982410070773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200621035557189588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0713fa1f27e884d4ea8cc8d96fa74c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadeReload: 2
+  throwForce: 20
+  grenadePrefab: {fileID: 577939610267330452, guid: 3bd4a57a64d60cc4292bd85378568cef,
+    type: 3}
+  camera: {fileID: 7472575250410967705}
 --- !u!1 &9200621035626500782
 GameObject:
   m_ObjectHideFlags: 0
