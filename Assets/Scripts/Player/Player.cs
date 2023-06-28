@@ -15,7 +15,6 @@ namespace Assets.Scripts
             TimerOn = true;
             return base.TakeDamage(damage);
         }
-
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Q))
