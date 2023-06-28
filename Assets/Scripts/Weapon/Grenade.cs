@@ -17,11 +17,14 @@ public class Grenade : MonoBehaviour
     bool isExpolde = false;
     bool drag = false;
     Collider[] colliders;
+    Rigidbody rb;
     Vector3 pos;
+
 
     void Start()
     {
         countdown = flyDelay;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -32,13 +35,15 @@ public class Grenade : MonoBehaviour
             drag = true;
             isExpolde=true;
             pos = transform.position;
-            colliders = Physics.OverlapSphere(transform.position, radius);
-            Instantiate(dragEffect, transform.position, transform.rotation);
+            GameObject dragvfx = Instantiate(dragEffect, pos, transform.rotation);
             countdown = dragDecay;
+            rb.isKinematic = true;
+            Destroy(dragvfx, dragDecay);     
         }
 
         if(drag)
         {
+            colliders = Physics.OverlapSphere(pos, radius);
             foreach (Collider collider in colliders)
             {
                 Rigidbody rb = collider.GetComponent<Rigidbody>();
@@ -51,6 +56,7 @@ public class Grenade : MonoBehaviour
 
         if (countdown < 0 && drag)
         {
+            colliders = Physics.OverlapSphere(pos, radius);
             Instantiate(explosionEffect, pos, transform.rotation);
 
             foreach (Collider collider in colliders)

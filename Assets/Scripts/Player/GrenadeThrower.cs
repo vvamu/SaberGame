@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GrenadeThrower : MonoBehaviour
 {
+    [SerializeField] protected UnityEvent<float, float> onGrenadeReload;
+
     public float grenadeReload = 2.0f;
     public float throwForce = 50f;
     public GameObject grenadePrefab;
@@ -20,6 +23,7 @@ public class GrenadeThrower : MonoBehaviour
             if (grenadeReload >= Timer)
             {
                 Timer += Time.deltaTime;
+                onGrenadeReload.Invoke(Timer, grenadeReload);
             }
             else
             {
