@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.Weapon;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,42 +11,43 @@ public class Inventory : MonoBehaviour
 
 
     #region Properties
-    public GameObject CurrentWeapon { get => _currentWeapon ?? Weapons.FirstOrDefault(); set => _currentWeapon = value; }
+    public BaseWeapon CurrentWeapon { get => _currentWeapon ?? Weapons.FirstOrDefault(); set => _currentWeapon = value; }
     private int _currentWeaponIndex;//=> Array.IndexOf(Weapons, CurrentWeapon);
 
     #endregion
 
     #region Fields
 
-    private GameObject _currentWeapon;
+    public BaseWeapon _currentWeapon;
 
-    [SerializeField] private GameObject[] Weapons;
+    [SerializeField] private BaseWeapon[] Weapons;
     [SerializeField] private static int maxVolume = 5;
     [SerializeField] private float switchSpeed = 5f;
+    [SerializeField] private WeaponAmmo[] weaponAmmos;
 
 
     #endregion
 
     #region Methods
-    public GameObject ChangeCurrentWeapon(int index)
+    public BaseWeapon ChangeCurrentWeapon(int index)
     {
        if (index > maxVolume || index < 0) throw new ArgumentOutOfRangeException();
 
-       CurrentWeapon.SetActive(false);
+       CurrentWeapon.gameObject.SetActive(false);
        CurrentWeapon = Weapons[index];
-       CurrentWeapon.SetActive(true);
+       CurrentWeapon.gameObject.SetActive(true);
 
        return CurrentWeapon;
     }
 
 
     #region Optional - AddToInventory
-    public void AddToInventory(Weapon weapon)
-    {
-        if (InventoryIsFull) return;
-        //Weapons[IndexOfFirstEmptyElement()] = weapon;
+    //public void AddToInventory(Weapon weapon)
+    //{
+    //    if (InventoryIsFull) return;
+    //    //Weapons[IndexOfFirstEmptyElement()] = weapon;
 
-    }
+    //}
 
     private bool InventoryIsFull =>
     Weapons.Select(x => x == null).Any();
@@ -63,6 +65,14 @@ public class Inventory : MonoBehaviour
 
 
     #region MonoBehavior
+
+    private void Awake()
+    {
+        for (int i = 0; i < weaponAmmos.Length; i++)
+        {
+            weaponAmmos[i] = Instantiate(weaponAmmos[i]);
+        }
+    }
 
     public void ChangeWeapon()
     {

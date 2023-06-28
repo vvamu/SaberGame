@@ -6,12 +6,16 @@ public class AttackState : StateWithInitTime
 {
     public override void OnStateEnter(BaseStateMachine stateMachine)
     {
-        var animator = stateMachine.GetComponent<Animator>();
         var nav = stateMachine.GetComponent<NavMeshAgent>();
+        var enemy = stateMachine.GetComponent<Enemy>();
+        var weapon = enemy.Weapon;
+        var player = enemy.EnemyVision.SearchForTarget();
 
         nav.ResetPath();
-        animator.SetTrigger("Attack");
-        Debug.Log("Attack");
+
+        var direction = player.transform.position - enemy.transform.position;
+        weapon.Aim.SetShootPositionAndDirection(enemy.transform.position, direction);
+        weapon.Aim.AimendAttack();
         base.OnStateEnter(stateMachine);
     }
 }

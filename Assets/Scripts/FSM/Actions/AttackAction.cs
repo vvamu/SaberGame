@@ -7,13 +7,17 @@ public class AttackAction : FSMAction
 {
     public override void Execute(BaseStateMachine stateMachine)
     {
-        var animator = stateMachine.GetComponent<Animator>();
         var enemy = stateMachine.GetComponent<Enemy>();
+        var weapon = enemy.Weapon;
         var player = enemy.EnemyVision.SearchForTarget();
 
-        animator.SetTrigger("Attack");
         Debug.Log("Attack");
-        if (player)
-            enemy.Weapon.Shoot(player.transform.position);
+
+        var direction = player.transform.position - enemy.transform.position;
+        weapon.Aim.SetShootPositionAndDirection(enemy.transform.position, direction);
+        weapon.Aim.AimendAttack();
+        //if (player)
+        //    enemy.Weapon.Shoot(player.transform.position);
+        //TODO
     }
 }
