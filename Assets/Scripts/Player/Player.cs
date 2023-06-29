@@ -15,13 +15,12 @@ namespace Assets.Scripts
             TimerOn = true;
             return base.TakeDamage(damage);
         }
-
+        void Start()
+        {
+            onHealthChange.Invoke(Health, MaxHealth);
+        }
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                TakeDamage(42);
-            }
             if(TimerOn)
             {
                 if (RegenerationDecay >= Timer)
