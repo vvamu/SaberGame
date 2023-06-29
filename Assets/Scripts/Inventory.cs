@@ -5,10 +5,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
-
+    [SerializeField] protected UnityEvent<int> onChangeCurrentWeapon;
 
     #region Properties
     public BaseWeapon CurrentWeapon { get => _currentWeapon ?? Weapons.FirstOrDefault(); set => _currentWeapon = value; }
@@ -36,6 +37,8 @@ public class Inventory : MonoBehaviour
        CurrentWeapon.gameObject.SetActive(false);
        CurrentWeapon = Weapons[index];
        CurrentWeapon.gameObject.SetActive(true);
+
+        onChangeCurrentWeapon.Invoke(index);
 
        return CurrentWeapon;
     }
@@ -72,6 +75,7 @@ public class Inventory : MonoBehaviour
         {
             weaponAmmos[i] = Instantiate(weaponAmmos[i]);
         }
+        onChangeCurrentWeapon.Invoke(0);
     }
 
     public void ChangeWeapon()

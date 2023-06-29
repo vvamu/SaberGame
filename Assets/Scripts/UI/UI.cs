@@ -9,24 +9,19 @@ public class UI : MonoBehaviour
 {
     public GameObject Player;
     [SerializeField] private Slider _healthBarSlider;
+    [SerializeField] private Slider _grenadeReloadSlider;
     [SerializeField] private TextMeshProUGUI _ammoDisplayText;
-    private Player _player;
-    private Inventory _inventory;
+    [SerializeField] private Image _currentWeaponImage;
+    [SerializeField] private Sprite[] _weaponImages;
 
-    void Start()
+    public void DisplayGrenade(float current, float max)
     {
-        //_healthBarSlider = Player.GetComponentInChildren<Slider>();
-        //_ammoDisplayText = Player.GetComponentInChildren<TextMeshProUGUI>();
-        //_healthBarSlider.maxValue = Player.GetComponent<Player>().MaxHealth;
-        //_player = Player.GetComponent<Player>();
-        //_inventory = Player.GetComponent<Inventory>();
+        _grenadeReloadSlider.value = current / max;
     }
 
-    void Update()
+    public void DisplayCurrentWeapon(int id)
     {
-        //_healthBarSlider.value = _player.Health;
-       // TODO Ammo currentammo = _inventory.CurrentWeapon.GetComponent<Ammo>();
-       // _ammoDisplayText.text = currentammo.CurrentInClipCount.ToString() + " / " + currentammo.CurrentCount.ToString();
+        _currentWeaponImage.sprite = _weaponImages[id];
     }
 
     public void DisplayWeapon(int a1, int a2, int a3, int a4)
