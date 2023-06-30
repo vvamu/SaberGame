@@ -5830,6 +5830,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5345369943212051019, guid: f006ad052f6d3fc45ae9a058724fdb08,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798803968217926890, guid: f006ad052f6d3fc45ae9a058724fdb08,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798803968217926890, guid: f006ad052f6d3fc45ae9a058724fdb08,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6973208779582813406, guid: f006ad052f6d3fc45ae9a058724fdb08,
         type: 3}
       propertyPath: m_RootOrder
@@ -5883,6 +5898,11 @@ PrefabInstance:
     - target: {fileID: 6973208779582813406, guid: f006ad052f6d3fc45ae9a058724fdb08,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233097867137085888, guid: f006ad052f6d3fc45ae9a058724fdb08,
+        type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
