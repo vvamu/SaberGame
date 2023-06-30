@@ -165,8 +165,8 @@ MonoBehaviour:
   Path: []
   EnemyVision: {fileID: 5106939537833711306}
   Weapon: {fileID: 1695361180857680142}
-  WalkSpeed: 2
-  SprintSpeed: 4
+  WalkSpeed: 3
+  SprintSpeed: 6
 --- !u!114 &5106939537833711306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Angle: 230
-  Range: 20
+  Range: 30
   RangeApriori: 5
   targetMask:
     serializedVersion: 2
