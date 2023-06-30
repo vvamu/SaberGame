@@ -11,7 +11,7 @@ public class EnergyRiffleAnimating : MonoBehaviour
     
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift)) 
+        if(Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W)) 
         {
             _animator.SetBool("Run", true);
             _animator.SetBool("Aiming", false);
@@ -20,7 +20,8 @@ public class EnergyRiffleAnimating : MonoBehaviour
         if(Input.GetMouseButtonDown(1)) _animator.SetBool("Aiming", true);
 
         if(Input.GetMouseButtonUp(1)) _animator.SetBool("Aiming", false);
-        if(Input.GetMouseButton(0)) _animator.SetTrigger("Shoot");
+        if(Input.GetMouseButtonDown(0)) _animator.SetBool("Shoot", true);
+        if(Input.GetMouseButtonUp(0)) _animator.SetBool("Shoot", false);
         if(Input.GetKey(KeyCode.R)) _animator.SetTrigger("Reload");
     }
 }
