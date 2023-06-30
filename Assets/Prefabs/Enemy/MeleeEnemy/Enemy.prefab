@@ -110,8 +110,8 @@ MonoBehaviour:
   Path: []
   EnemyVision: {fileID: 6729650125525916574}
   Weapon: {fileID: 5871080964213622280}
-  WalkSpeed: 2
-  SprintSpeed: 4
+  WalkSpeed: 5
+  SprintSpeed: 10
 --- !u!114 &2772861207419348766
 MonoBehaviour:
   m_ObjectHideFlags: 0

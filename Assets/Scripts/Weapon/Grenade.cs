@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    public float flyDelay = 2.0f;
-    public float dragDecay = 3.0f;
+    public float flyDelay;
+    public float dragDecay;
     public GameObject explosionEffect;
     public GameObject dragEffect;
-    public float radius = 20f;
-    public float force = 500f;
-    public float damage = 1000f;
+    public float radius;
+    public float force;
+    public float damage;
 
     float countdown;
     bool isExpolde = false;
@@ -47,7 +47,8 @@ public class Grenade : MonoBehaviour
             foreach (Collider collider in colliders)
             {
                 Rigidbody rb = collider.GetComponent<Rigidbody>();
-                if (rb != null)
+                Player pl = collider.GetComponentInParent<Player>();
+                if (rb != null && pl == null)
                 {
                     rb.AddExplosionForce(force * Time.deltaTime, pos, radius);
                 }
