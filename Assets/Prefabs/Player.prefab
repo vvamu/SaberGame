@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 4079196587629421463}
+  _bulletHole: {fileID: 0}
   _camera: {fileID: 5345369942399567341}
 --- !u!114 &1436039011882225208
 MonoBehaviour:
@@ -663,7 +664,7 @@ PrefabInstance:
     - target: {fileID: 2237676869733698320, guid: d346b0443a029bb4faafa342e1e0e6d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2237676869733698320, guid: d346b0443a029bb4faafa342e1e0e6d8,
         type: 3}
