@@ -279,4 +279,4 @@ MonoBehaviour:
   _collisonMask:
     serializedVersion: 2
     m_Bits: 192
-  _damage: 10
+  _damage: 30
