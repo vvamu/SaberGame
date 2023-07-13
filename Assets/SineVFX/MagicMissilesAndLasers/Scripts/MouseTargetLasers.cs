@@ -10,7 +10,6 @@ public class MouseTargetLasers : MonoBehaviour {
     public ParticleSystem startParticles;
     public int startParticlesCount = 100;
     public GameObject laserShotPrefab;
-
     private Vector3 mouseWorldPosition;
     private Animator anim;
     
@@ -49,7 +48,7 @@ public class MouseTargetLasers : MonoBehaviour {
     // Raycasting and positioning Cursor GameObject at Collision point
     void FixedUpdate () {  
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth/2, Camera.main.pixelWidth/2,0));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
