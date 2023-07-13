@@ -105,6 +105,9 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 0
   Weapon: {fileID: 5871080964213622280}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5578597088796929572
 MonoBehaviour:
   m_ObjectHideFlags: 0

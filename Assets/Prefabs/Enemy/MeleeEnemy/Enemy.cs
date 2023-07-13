@@ -8,4 +8,10 @@ using UnityEngine.Events;
 public class Enemy : Character
 {
     public BaseWeapon Weapon;
+    [SerializeField] protected UnityEvent _onHit;
+    public override float TakeDamage(float damage)
+    {
+        _onHit.Invoke();
+        return base.TakeDamage(damage);
+    }
 }

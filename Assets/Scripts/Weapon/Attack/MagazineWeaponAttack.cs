@@ -43,5 +43,10 @@ namespace Assets.Scripts.Weapon.Attack
 
             OnAmountChange.Invoke(_ammoInMagazine, _magazineCapacity, _weaponAmmo.CurrentAmount, _weaponAmmo.MaxAmount);
         }
+
+        void Start()
+        {
+            OnAmountChange.Invoke(_ammoInMagazine, _magazineCapacity, _weaponAmmo.CurrentAmount, _weaponAmmo.MaxAmount);
+        }
     }
 }

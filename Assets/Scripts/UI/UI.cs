@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _ammoDisplayText;
     [SerializeField] private Image _currentWeaponImage;
     [SerializeField] private Sprite[] _weaponImages;
+    [SerializeField] private AudioSource _hitMarker;
 
     public void DisplayGrenade(float current, float max)
     {
@@ -38,5 +39,11 @@ public class UI : MonoBehaviour
     public void DisplayHealth(float heath, float maxHealth)
     {
         _healthBarSlider.value = heath / maxHealth;
+    }
+
+    public void HitSound()
+    {
+        _hitMarker.Play();
+        Debug.Log("hit");
     }
 }
