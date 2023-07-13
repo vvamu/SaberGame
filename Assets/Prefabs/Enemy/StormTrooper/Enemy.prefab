@@ -160,6 +160,9 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 0
   Weapon: {fileID: 1695361180857680142}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4370580532351325082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +187,7 @@ MonoBehaviour:
     _version: 3.25
     _category: 
     _comments: 
-    _translation: {x: -189, y: -465}
+    _translation: {x: 87, y: -292}
     _zoomFactor: 0.88205266
   _firstActivation: 0
   _enableAction: 0
@@ -207,13 +210,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"Player":{"_name":"Player","_id":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+  _serializedBlackboard: '{"_variables":{"Player":{"_value":1,"_name":"Player","_id":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
-  _objectReferences: []
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 2884737681629020433, guid: 2ee43e69629c3df4588483e035b86f42, type: 3}
   _serializedVariables:
-  - _json: '{"_name":"Player","_id":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+  - _json: '{"_value":1,"_name":"Player","_id":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
+    _references:
+    - {fileID: 0}
+    - {fileID: 2884737681629020433, guid: 2ee43e69629c3df4588483e035b86f42, type: 3}
 --- !u!1 &2034568056169724077
 GameObject:
   m_ObjectHideFlags: 0
