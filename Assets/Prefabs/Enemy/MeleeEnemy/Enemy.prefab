@@ -102,9 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb309ceeca9ca634fa5fc0a59fdb0437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
   Health: 100
   MaxHealth: 0
   Weapon: {fileID: 5871080964213622280}
