@@ -13,8 +13,14 @@ namespace Assets.Scripts.Weapon.Attack
 
         [SerializeField] private UnityEvent<int, int, int, int> _onAmountChange;
 
+        private void Awake()
+        {
+            _ammoInMagazine = _magazineCapacity;
+        }
+
         private int _ammoInMagazine;
 
+        public int AmmoInMagazine => _ammoInMagazine;
         public UnityEvent<int, int, int, int> OnAmountChange => _onAmountChange;
 
         public override void Attack(Vector3 position, Vector3 direction)
