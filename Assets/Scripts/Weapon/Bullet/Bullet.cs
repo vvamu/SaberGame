@@ -8,6 +8,12 @@ namespace Assets.Scripts.Weapon.Bullet
     {
         [SerializeField] private LayerMask _collisonMask;
         [SerializeField] private float _damage;
+        [SerializeField] private AudioSource _shot;
+
+        private void Awake()
+        {
+            _shot.Play();
+        }
 
         private void OnTriggerEnter(Collider collision)
         {
@@ -17,7 +23,7 @@ namespace Assets.Scripts.Weapon.Bullet
                 {
                     character.TakeDamage(_damage);
                 }
-                Destroy(gameObject);
+                Destroy(gameObject, 1);
             }
         }
     }

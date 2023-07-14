@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using System.Collections;
 using System.Runtime.InteropServices;
 using TMPro;
 using Unity.VisualScripting;
@@ -7,15 +8,31 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    public GameObject Player;
     [SerializeField] private Slider _healthBarSlider;
     [SerializeField] private Slider _shieldBarSlider;
     [SerializeField] private Slider _grenadeReloadSlider;
     [SerializeField] private TextMeshProUGUI _ammoDisplayText;
     [SerializeField] private Image _currentWeaponImage;
+    [SerializeField] private GameObject _hitMarkerIcon;
     [SerializeField] private Sprite[] _weaponImages;
-    [SerializeField] private AudioSource _hitMarker;
+    [SerializeField] private AudioSource _hitMarkerSound;
 
+    private void OnEnable()
+    {
+        EventBus.onHit += HitSound;
+        EventBus.onGrenadeReload += DisplayGrenade;
+        EventBus.onHealthChange += DisplayHealth;
+        EventBus.onShieldChange += DisplayShield;
+        EventBus.onWeaponChange += DisplayCurrentWeapon;
+    }
+    private void OnDestroy()
+    {
+        EventBus.onHit -= HitSound;
+        EventBus.onGrenadeReload -= DisplayGrenade;
+        EventBus.onHealthChange -= DisplayHealth;
+        EventBus.onShieldChange -= DisplayShield;
+        EventBus.onWeaponChange -= DisplayCurrentWeapon;
+    }
     public void DisplayGrenade(float current, float max)
     {
         _grenadeReloadSlider.value = current / max;
@@ -43,7 +60,15 @@ public class UI : MonoBehaviour
 
     public void HitSound()
     {
-        _hitMarker.Play();
-        Debug.Log("hit");
+        StartCoroutine(ShowHitmarket());
+    }
+
+    IEnumerator ShowHitmarket()
+    {
+        _hitMarkerIcon.SetActive(true);
+        _hitMarkerSound.Play();
+        yield return new WaitForSeconds(.2f);
+        _hitMarkerIcon.SetActive(false);
+        yield return null;
     }
 }

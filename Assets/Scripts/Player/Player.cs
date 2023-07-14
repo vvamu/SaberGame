@@ -7,9 +7,6 @@ namespace Assets.Scripts
 {
     public class Player : Character
     {
-        [SerializeField] protected UnityEvent<float, float> onShieldChange;
-        [SerializeField] protected UnityEvent<float, float> onHealthChange;
-
         [SerializeField] public float RegenerationCountHP;
         [SerializeField] public float RegenerationDecayHP;
         [SerializeField] public float RegenerationCountShield;
@@ -31,7 +28,7 @@ namespace Assets.Scripts
                     TimerOnShield = false;
                 }
                 Shield -= damage;
-                onShieldChange.Invoke(Shield, MaxShield);
+                EventBus.onShieldChange?.Invoke(Shield, MaxShield);
                 TimerOnShield = true;
                 return 0;
             }
@@ -42,14 +39,14 @@ namespace Assets.Scripts
                     TimerOnHP = false;
                 }
                 TimerOnHP = true;
-                onHealthChange.Invoke(Health, MaxHealth);
+                EventBus.onHealthChange?.Invoke(Health, MaxHealth);
                 return base.TakeDamage(damage);
             }
         }
         void Start()
         {
-            onHealthChange.Invoke(Health, MaxHealth);
-            onShieldChange.Invoke(Shield, MaxShield);
+            EventBus.onHealthChange?.Invoke(Health, MaxHealth);
+            EventBus.onShieldChange?.Invoke(Shield, MaxShield);
         }
 
         void Update()
@@ -72,7 +69,7 @@ namespace Assets.Scripts
                 if (Shield < MaxShield)
                 {
                     Shield += RegenerationCountShield * Time.deltaTime;
-                    onShieldChange.Invoke(Shield, MaxShield);
+                    EventBus.onShieldChange?.Invoke(Shield, MaxShield);
                 }
             }
 
@@ -94,7 +91,7 @@ namespace Assets.Scripts
                 if (Health<MaxHealth)
                 {
                     Health += RegenerationCountHP * Time.deltaTime;
-                    onHealthChange.Invoke(Health, MaxHealth);
+                    EventBus.onHealthChange?.Invoke(Health, MaxHealth);
                 }
             }
         }
