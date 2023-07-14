@@ -9,8 +9,6 @@ using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] protected UnityEvent<int> onChangeCurrentWeapon;
-
     #region Properties
     public BaseWeapon CurrentWeapon { get => _currentWeapon ?? Weapons.FirstOrDefault(); set => _currentWeapon = value; }
     private int _currentWeaponIndex;//=> Array.IndexOf(Weapons, CurrentWeapon);

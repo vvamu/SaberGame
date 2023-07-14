@@ -43,7 +43,6 @@ public class UI : MonoBehaviour
 
     public void HitSound()
     {
-        _hitMarker.Play();
         Debug.Log("hit");
     }
 }
