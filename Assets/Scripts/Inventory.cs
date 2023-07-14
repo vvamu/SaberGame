@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
        CurrentWeapon = Weapons[index];
        CurrentWeapon.gameObject.SetActive(true);
 
-        onChangeCurrentWeapon.Invoke(index);
+        EventBus.onWeaponChange?.Invoke(index);
 
        return CurrentWeapon;
     }
@@ -73,7 +73,7 @@ public class Inventory : MonoBehaviour
         {
             weaponAmmos[i] = Instantiate(weaponAmmos[i]);
         }
-        onChangeCurrentWeapon.Invoke(0);
+        EventBus.onWeaponChange?.Invoke(0);
     }
 
     public void ChangeWeapon()
@@ -133,6 +133,11 @@ public class Inventory : MonoBehaviour
     public void Update()
     {
         ChangeWeapon();
+    }
+
+    public void Start()
+    {
+        EventBus.onWeaponChange?.Invoke(0);
     }
 
     #endregion
