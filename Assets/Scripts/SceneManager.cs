@@ -5,6 +5,6 @@ public class SceneManager : MonoBehaviour
 {
     public void StartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Nikita2");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Vadim2");
     }
 }
