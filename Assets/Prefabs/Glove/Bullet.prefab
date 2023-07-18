@@ -48,8 +48,8 @@ MonoBehaviour:
   _collisonMask:
     serializedVersion: 2
     m_Bits: 256
-  _damage: 50
-  _lifeTime: 2
+  _damage: 10
+  _lifeTime: 1
 --- !u!135 &-645059017870464782
 SphereCollider:
   m_ObjectHideFlags: 0

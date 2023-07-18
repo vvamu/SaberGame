@@ -3002,7 +3002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8046389078178383500}
-  - component: {fileID: 3197426442647997068}
+  - component: {fileID: 1539273366272304824}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -3026,7 +3026,7 @@ Transform:
   m_Father: {fileID: 6744618870848797690}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3197426442647997068
+--- !u!114 &1539273366272304824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3035,10 +3035,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6741913403417764390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 772dc8d7d02fef74489903434db3c0a8, type: 3}
+  m_Script: {fileID: 11500000, guid: b7f0a6c7d6bc813439ece13019c3bffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Aim: {fileID: 145390056930841652}
+  Cooldown: 0.5
 --- !u!1 &6886690919154432863
 GameObject:
   m_ObjectHideFlags: 0

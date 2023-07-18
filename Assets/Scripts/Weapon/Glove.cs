@@ -9,7 +9,7 @@ using UnityEngine;
 public class Glove : BaseWeapon
 {
         [SerializeField]
-        private SingleTrigger _trigger;
+        private AutomaticTrigger _trigger;
         [SerializeField]
         private WeaponAimedAttack _aim;
 
