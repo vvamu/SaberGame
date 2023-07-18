@@ -421,6 +421,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 10342152969234352, guid: 0f5fcde312fe5364092aabc1756b308e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1696014694992928748, guid: 0f5fcde312fe5364092aabc1756b308e,
         type: 3}
       propertyPath: m_Name
@@ -429,7 +434,7 @@ PrefabInstance:
     - target: {fileID: 1696014694992928748, guid: 0f5fcde312fe5364092aabc1756b308e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2437060625171721727, guid: 0f5fcde312fe5364092aabc1756b308e,
         type: 3}
@@ -523,6 +528,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8081975865684812322, guid: 0f5fcde312fe5364092aabc1756b308e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f5fcde312fe5364092aabc1756b308e, type: 3}
 --- !u!1001 &184853703
@@ -591,6 +601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Thriller Part 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e5ccf1a72f673d4da8f061808fd3b43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5ccf1a72f673d4da8f061808fd3b43, type: 3}
