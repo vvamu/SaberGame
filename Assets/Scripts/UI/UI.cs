@@ -16,6 +16,7 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject _hitMarkerIcon;
     [SerializeField] private Sprite[] _weaponImages;
     [SerializeField] private AudioSource _hitMarkerSound;
+    [SerializeField] private GameObject _helpNote;
 
     private void OnEnable()
     {
@@ -70,5 +71,23 @@ public class UI : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         _hitMarkerIcon.SetActive(false);
         yield return null;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1)) 
+        {
+            Debug.Log("asd");
+            if (_helpNote.active)
+            {
+                _helpNote.SetActive(false);
+                _hitMarkerIcon.SetActive(false);
+            }
+            else
+            {
+                _helpNote.SetActive(true);
+                _hitMarkerIcon.SetActive(true);
+            }
+        }
     }
 }
