@@ -1404,8 +1404,8 @@ Transform:
   m_GameObject: {fileID: 2884737681629020433}
   m_LocalRotation: {x: -0.0005533242, y: 0.9933212, z: 0.0047676624, w: 0.115282625}
   m_LocalPosition: {x: -8.507983, y: 2.18, z: 21.42668}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1666104807430075971}
   - {fileID: 3948301987258619064}
@@ -1438,7 +1438,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 176724f165ed631408775764c436d474, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.7
+  m_Radius: 0.4
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -4280,8 +4280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88d47551cb218849bb558f83947ebc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trigger: {fileID: 0}
-  _aim: {fileID: 0}
+  _trigger: {fileID: 1539273366272304824}
+  _aim: {fileID: 145390056930841652}
 --- !u!4 &6744618870848797690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1d0b8301f1e445a4f94d7ced2b0d4158,
