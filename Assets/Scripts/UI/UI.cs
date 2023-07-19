@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using System.Collections;
 using System.Runtime.InteropServices;
 using TMPro;
 using Unity.VisualScripting;
@@ -7,13 +8,32 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    public GameObject Player;
     [SerializeField] private Slider _healthBarSlider;
+    [SerializeField] private Slider _shieldBarSlider;
     [SerializeField] private Slider _grenadeReloadSlider;
     [SerializeField] private TextMeshProUGUI _ammoDisplayText;
     [SerializeField] private Image _currentWeaponImage;
+    [SerializeField] private GameObject _hitMarkerIcon;
     [SerializeField] private Sprite[] _weaponImages;
+    [SerializeField] private AudioSource _hitMarkerSound;
+    [SerializeField] private GameObject _helpNote;
 
+    private void OnEnable()
+    {
+        EventBus.onHit += HitSound;
+        EventBus.onGrenadeReload += DisplayGrenade;
+        EventBus.onHealthChange += DisplayHealth;
+        EventBus.onShieldChange += DisplayShield;
+        EventBus.onWeaponChange += DisplayCurrentWeapon;
+    }
+    private void OnDestroy()
+    {
+        EventBus.onHit -= HitSound;
+        EventBus.onGrenadeReload -= DisplayGrenade;
+        EventBus.onHealthChange -= DisplayHealth;
+        EventBus.onShieldChange -= DisplayShield;
+        EventBus.onWeaponChange -= DisplayCurrentWeapon;
+    }
     public void DisplayGrenade(float current, float max)
     {
         _grenadeReloadSlider.value = current / max;
@@ -29,8 +49,45 @@ public class UI : MonoBehaviour
         _ammoDisplayText.text = $"{a1}/{a2}\n{a3}/{a4}";
     }
 
+    public void DisplayShield(float shield, float maxShield)
+    {
+        _shieldBarSlider.value = shield / maxShield;
+    }
+
     public void DisplayHealth(float heath, float maxHealth)
     {
         _healthBarSlider.value = heath / maxHealth;
+    }
+
+    public void HitSound()
+    {
+        StartCoroutine(ShowHitmarket());
+    }
+
+    IEnumerator ShowHitmarket()
+    {
+        _hitMarkerIcon.SetActive(true);
+        _hitMarkerSound.Play();
+        yield return new WaitForSeconds(.2f);
+        _hitMarkerIcon.SetActive(false);
+        yield return null;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1)) 
+        {
+            Debug.Log("asd");
+            if (_helpNote.active)
+            {
+                _helpNote.SetActive(false);
+                _hitMarkerIcon.SetActive(false);
+            }
+            else
+            {
+                _helpNote.SetActive(true);
+                _hitMarkerIcon.SetActive(true);
+            }
+        }
     }
 }

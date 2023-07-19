@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Weapon.Interfaces;
+﻿using Assets.Scripts.Weapon.Aim;
+using Assets.Scripts.Weapon.Interfaces;
 using System.Collections;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ namespace Assets.Scripts.Weapon.Trigger
 {
     public class SingleTrigger : TriggerPull
     {
-        public IWeaponAim Aim { get; set; }
+        [SerializeField]
+        private WeaponAimedAttack Aim;
         public override void Press()
         {
             Aim.AimendAttack();

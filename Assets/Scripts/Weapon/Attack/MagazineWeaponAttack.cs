@@ -13,8 +13,14 @@ namespace Assets.Scripts.Weapon.Attack
 
         [SerializeField] private UnityEvent<int, int, int, int> _onAmountChange;
 
+        private void Awake()
+        {
+            _ammoInMagazine = _magazineCapacity;
+        }
+
         private int _ammoInMagazine;
 
+        public int AmmoInMagazine => _ammoInMagazine;
         public UnityEvent<int, int, int, int> OnAmountChange => _onAmountChange;
 
         public override void Attack(Vector3 position, Vector3 direction)
@@ -35,6 +41,11 @@ namespace Assets.Scripts.Weapon.Attack
             _weaponAmmo.CurrentAmount -= _magazineCapacity;
             _ammoInMagazine = _magazineCapacity;
 
+            OnAmountChange.Invoke(_ammoInMagazine, _magazineCapacity, _weaponAmmo.CurrentAmount, _weaponAmmo.MaxAmount);
+        }
+
+        void Start()
+        {
             OnAmountChange.Invoke(_ammoInMagazine, _magazineCapacity, _weaponAmmo.CurrentAmount, _weaponAmmo.MaxAmount);
         }
     }

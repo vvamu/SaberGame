@@ -347,9 +347,6 @@ GameObject:
   - component: {fileID: 2567522792606179555}
   - component: {fileID: 989260109403083134}
   - component: {fileID: 7822034629918456735}
-  - component: {fileID: 4203740296771511074}
-  - component: {fileID: 8126648909997623348}
-  - component: {fileID: 6553581225947599606}
   m_Layer: 0
   m_Name: Enemy With Shield
   m_TagString: Enemy
@@ -492,67 +489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  Path:
-  - {fileID: 0}
-  - {fileID: 0}
-  EnemyVision: {fileID: 4203740296771511074}
+  MaxHealth: 0
   Weapon: {fileID: 0}
-  WalkSpeed: 2
-  SprintSpeed: 4
---- !u!114 &4203740296771511074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240089138546584672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70bdd7ad950407441b6cf8e7d006ccb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Angle: 180
-  Range: 10
-  RangeApriori: 4
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!95 &8126648909997623348
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240089138546584672}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54f13a5d51d0dcd4b99cbc796221e659, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6553581225947599606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240089138546584672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d26b8f94605d7947b236dfafc8ea82c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialState: {fileID: 11400000, guid: f0a114edb02c24441a9b87d2282449c1, type: 2}
 --- !u!1 &7364266617449711132
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,3 +699,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 50
+  MaxHealth: 0

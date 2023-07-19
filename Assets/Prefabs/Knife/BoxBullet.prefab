@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collisonMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   _damage: 50
   _lifeTime: 0.3
 --- !u!65 &4604086333036911286

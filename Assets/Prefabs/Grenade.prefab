@@ -818,7 +818,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &2144056627583796215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,14 +832,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyDelay: 2
-  dragDecay: 3
+  dragDecay: 1
   explosionEffect: {fileID: 1079637017074268, guid: 96a34a255132a2042a1e0033d02e4128,
     type: 3}
   dragEffect: {fileID: 2493920657232779809, guid: a9e1a4a3400050f499c259ac8d0f0408,
     type: 3}
-  radius: 5
-  force: -50000
-  damage: 110
+  radius: 7
+  force: -10000
+  damage: 50
 --- !u!1 &6829743960606770313
 GameObject:
   m_ObjectHideFlags: 0

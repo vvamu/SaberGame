@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6856868510953690379}
   - component: {fileID: -1066404092498598762}
   - component: {fileID: 1154226595614002807}
-  - component: {fileID: 5106939537833711306}
-  - component: {fileID: 5932112498485184602}
+  - component: {fileID: 4370580532351325082}
+  - component: {fileID: 3025990791071935842}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -119,7 +119,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -137,8 +137,8 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
@@ -157,17 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb309ceeca9ca634fa5fc0a59fdb0437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
   Health: 100
   MaxHealth: 0
-  Path: []
-  EnemyVision: {fileID: 5106939537833711306}
   Weapon: {fileID: 1695361180857680142}
-  WalkSpeed: 2
-  SprintSpeed: 4
---- !u!114 &5106939537833711306
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4370580532351325082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,19 +172,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1796979417919904136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70bdd7ad950407441b6cf8e7d006ccb7, type: 3}
+  m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Angle: 230
-  Range: 20
-  RangeApriori: 5
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!114 &5932112498485184602
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":420.0,"y":367.0},"$type":"NodeCanvas.BehaviourTrees.StepIterator","$id":"0"},{"_condition":{"target":{"_name":"Player","_targetVariableID":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25"},"maxDistance":{"_value":50.0},"layerMask":{"_value":{"value":247}},"awarnessDistance":{"_value":12.0},"viewAngle":{"_value":110.0},"$type":"NodeCanvas.Tasks.Conditions.CanSeeTarget"},"_position":{"x":254.4827,"y":536.3346},"$type":"NodeCanvas.BehaviourTrees.Interruptor","$id":"1"},{"_action":{"speed":{"_value":2.0},"keepDistance":{"_value":0.1},"minWanderDistance":{"_value":5.0},"maxWanderDistance":{"_value":20.0},"$type":"NodeCanvas.Tasks.Actions.Wander"},"_position":{"x":271.5739,"y":674.8425},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"},{"repeaterMode":1,"repeatTimes":{"_value":1},"repeatUntilStatus":0,"_position":{"x":550.9995,"y":463.9923},"$type":"NodeCanvas.BehaviourTrees.Repeater","$id":"3"},{"_condition":{"target":{"_name":"Player","_targetVariableID":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25"},"maxDistance":{"_value":50.0},"layerMask":{"_value":{"value":247}},"awarnessDistance":{"_value":12.0},"viewAngle":{"_value":110.0},"$type":"NodeCanvas.Tasks.Conditions.CanSeeTarget"},"_position":{"x":577.4907,"y":574.9077},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"4"},{"_position":{"x":597.5156,"y":668.7638},"$type":"NodeCanvas.BehaviourTrees.StepIterator","$id":"5"},{"_condition":{"method":{"_baseInfo":"Assets.Scripts.Weapon.Attack.MagazineWeaponAttack|get_AmmoInMagazine|System.Int32","_paramsInfo":""},"checkValue":{"_type":"System.Int32","_value":{"$content":0,"$type":"System.Int32"}},"comparison":4,"overrideAgent":{"_type":"Assets.Scripts.Weapon.Attack.MagazineWeaponAttack","_value":1},"$type":"NodeCanvas.Tasks.Conditions.CheckProperty_Multiplatform"},"_position":{"x":373.4988,"y":802.6509},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"6"},{"_position":{"x":670.3385,"y":935.6847},"$type":"NodeCanvas.BehaviourTrees.StepIterator","$id":"7"},{"_action":{"speed":{"_value":8.0},"keepDistance":{"_value":0.1},"minWanderDistance":{"_value":5.0},"maxWanderDistance":{"_value":10.0},"repeat":false,"$type":"NodeCanvas.Tasks.Actions.Wander"},"_position":{"x":516.0,"y":1087.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_action":{"actions":[{"method":{"_baseInfo":"Assets.Scripts.Weapon.Attack.MagazineWeaponAttack|Reload|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"overrideAgent":{"_type":"Assets.Scripts.Weapon.Attack.MagazineWeaponAttack","_name":"Magazine","_targetVariableID":"424e13d3-0634-4655-a4ff-2339841a9826"},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":708.0,"y":1124.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"childWeights":[{"_value":1.0},{"_value":1.0}],"failChance":{},"_position":{"x":905.0,"y":776.0},"$type":"NodeCanvas.BehaviourTrees.ProbabilitySelector","$id":"10"},{"_action":{"actions":[{"target":{"_name":"Player","_targetVariableID":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25"},"speed":{"_value":2.0},"angleDifference":{"_value":1.0},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateInOneAxes"},{"target":{"_name":"Player","_targetVariableID":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25"},"$type":"NodeCanvas.Tasks.Actions.Aim"},{"$type":"NodeCanvas.Tasks.Actions.PressTrigger"},{"waitTime":{"_value":0.01},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"$type":"NodeCanvas.Tasks.Actions.Release"},{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":820.9835,"y":931.1234},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"11"},{"_action":{"speed":{"_value":8.0},"keepDistance":{"_value":0.1},"minWanderDistance":{"_value":2.0},"maxWanderDistance":{"_value":5.0},"repeat":false,"$type":"NodeCanvas.Tasks.Actions.Wander"},"_position":{"x":1114.362,"y":970.8121},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"12"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"LastPlayerPosition":{"_name":"LastPlayerPosition","_id":"cd7696a3-4f8f-4c36-81be-27af7fb3bdea","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Magazine":{"_value":2,"_name":"Magazine","_id":"424e13d3-0634-4655-a4ff-2339841a9826","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphObjectReferences:
+  - {fileID: 0}
+  - {fileID: 153238847121207616}
+  - {fileID: 4787211875863652382}
+  _boundGraphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: 87, y: -292}
+    _zoomFactor: 0.88205266
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 3025990791071935842}
+--- !u!114 &3025990791071935842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,10 +206,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1796979417919904136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d26b8f94605d7947b236dfafc8ea82c, type: 3}
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialState: {fileID: 11400000, guid: 5a8de7747bd3d174cb1282a8c9b09fa3, type: 2}
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"Player":{"_value":1,"_name":"Player","_id":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 2884737681629020433, guid: 2ee43e69629c3df4588483e035b86f42, type: 3}
+  _serializedVariables:
+  - _json: '{"_value":1,"_name":"Player","_id":"1e072ff3-ecab-4cb9-a7b5-8e179f6e1d25","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 2884737681629020433, guid: 2ee43e69629c3df4588483e035b86f42, type: 3}
 --- !u!1 &2034568056169724077
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +832,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d974c6b60198774d8f53ca444748a7e, type: 3}
+--- !u!4 &153238847121207616 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6601341213919772958, guid: 1d974c6b60198774d8f53ca444748a7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6466259978044223582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &205266318029595034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6585816884865077700, guid: 1d974c6b60198774d8f53ca444748a7e,
@@ -830,3 +856,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4397752a33761b24bb93f7162a27ca2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4787211875863652382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2005037410760841280, guid: 1d974c6b60198774d8f53ca444748a7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6466259978044223582}
+  m_PrefabAsset: {fileID: 0}

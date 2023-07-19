@@ -1,44 +1,97 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
     public class Player : Character
     {
-        [SerializeField] public float RegenerationCount;
-        [SerializeField] public float RegenerationDecay;
+        [SerializeField] public float RegenerationCountHP;
+        [SerializeField] public float RegenerationDecayHP;
+        [SerializeField] public float RegenerationCountShield;
+        [SerializeField] public float RegenerationDecayShield;
+        [SerializeField] public float Shield;
+        [SerializeField] public float MaxShield;
 
-        bool TimerOn = false;
-        float Timer = 0;
+        bool TimerOnHP = false;
+        bool TimerOnShield = false;
+
+        float TimerHP = 0;
+        float TimerShield = 0;
         public override float TakeDamage(float damage)
         {
-            TimerOn = true;
-            return base.TakeDamage(damage);
+            if (Shield >= 0)
+            {
+                if (TimerOnShield)
+                {
+                    TimerOnShield = false;
+                }
+                Shield -= damage;
+                EventBus.onShieldChange?.Invoke(Shield, MaxShield);
+                TimerOnShield = true;
+                return 0;
+            }
+            else
+            {
+                if (TimerOnHP)
+                {
+                    TimerOnHP = false;
+                }
+                TimerOnHP = true;
+                EventBus.onHealthChange?.Invoke(Health, MaxHealth);
+                return base.TakeDamage(damage);
+            }
         }
         void Start()
         {
-            onHealthChange.Invoke(Health, MaxHealth);
+            EventBus.onHealthChange?.Invoke(Health, MaxHealth);
+            EventBus.onShieldChange?.Invoke(Shield, MaxShield);
         }
+
         void Update()
         {
-            if(TimerOn)
+            //shield timer
+            if (TimerOnShield)
             {
-                if (RegenerationDecay >= Timer)
+                if (RegenerationDecayShield >= TimerShield)
                 {
-                    Timer += Time.deltaTime;
+                    TimerShield += Time.deltaTime;
                 }
                 else
                 {
-                    Timer = 0;
-                    TimerOn = false;
+                    TimerShield = 0;
+                    TimerOnShield = false;
+                }
+            }
+            else
+            {
+                if (Shield < MaxShield)
+                {
+                    Shield += RegenerationCountShield * Time.deltaTime;
+                    EventBus.onShieldChange?.Invoke(Shield, MaxShield);
+                }
+            }
+
+            //hp timer
+            if (TimerOnHP)
+            {
+                if (RegenerationDecayHP >= TimerHP)
+                {
+                    TimerHP += Time.deltaTime;
+                }
+                else
+                {
+                    TimerHP = 0;
+                    TimerOnHP = false;
                 }
             }
             else
             {
                 if (Health<MaxHealth)
                 {
-                    Health += RegenerationCount * Time.deltaTime;
-                    onHealthChange.Invoke(Health, MaxHealth);
+                    Health += RegenerationCountHP * Time.deltaTime;
+                    EventBus.onHealthChange?.Invoke(Health, MaxHealth);
                 }
             }
         }
