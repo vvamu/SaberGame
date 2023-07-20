@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class AnyPress : MonoBehaviour
 {
+    public string SceneName;
     void Update()
     {
         if(Input.anyKeyDown){
-            GetComponent<SceneManager>().StartGame();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(SceneName);
         }
     }
 }
