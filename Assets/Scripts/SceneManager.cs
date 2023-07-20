@@ -7,4 +7,7 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Vadim2");
     }
+    public void Restart(){
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+    }
 }

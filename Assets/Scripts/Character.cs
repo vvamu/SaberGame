@@ -14,12 +14,24 @@ namespace Assets.Scripts
         [Min(0)]
         [SerializeField] public float Health;
         [SerializeField] public float MaxHealth;
+        public DeathManager _deathManager;
+        public bool isEnemy = true;
+        public event Action OnDeath;
+        public void Start(){
+            if(TryGetComponent<DeathManager>(out var deathManager))
+                {
+                    OnDeath += deathManager.DeathCallback;
+                    isEnemy = false;
+                }
+        }
         public virtual float TakeDamage(float damage)
         {
             Health -= damage;
-            if (Health < 0)
-                Destroy(gameObject);
-            //    OnDeath.Invoke();
+            if (Health <= 0)
+                {
+                    OnDeath.Invoke();
+                    if(isEnemy) Destroy(gameObject);
+                }
             return Health;
         }
     }

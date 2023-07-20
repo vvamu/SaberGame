@@ -40,17 +40,22 @@ namespace Assets.Scripts
                 }
                 TimerOnHP = true;
                 EventBus.onHealthChange?.Invoke(Health, MaxHealth);
-                return base.TakeDamage(damage);
+                var value = base.TakeDamage(damage);      
+                return value;
+           
             }
+           
         }
         void Start()
         {
+            base.Start();
             EventBus.onHealthChange?.Invoke(Health, MaxHealth);
             EventBus.onShieldChange?.Invoke(Shield, MaxShield);
         }
 
         void Update()
         {
+            //base.Update();
             //shield timer
             if (TimerOnShield)
             {
